@@ -17,7 +17,8 @@ while True:
         break
 
 idx = 0
-while idx < len(user_list[:-1]):
+len_list = len(user_list)-1
+while idx < len_list:
     user_list[idx],user_list[idx+1] = user_list[idx+1],user_list[idx]
     idx += 2
 print(user_list)
