@@ -32,9 +32,9 @@ while idx < len_list:
         my_list.insert(idx, user_rating)
         break
     elif user_rating == my_list[idx] and user_rating > my_list[idx + 1]:
-        my_list.insert(idx+1, user_rating)
+        my_list.insert(idx + 1, user_rating)
         break
-    elif user_rating <= my_list[len_list-1]:
+    elif user_rating <= my_list[len_list - 1]:
         my_list.append(user_rating)
         break
     else:
