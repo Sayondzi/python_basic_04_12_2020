@@ -15,18 +15,17 @@ while True:
     else:
         print('Ошибка ввода, необходимо указать целое число.')
 
-year_dict ={
+year_dict = {
     'зима': [12, 1, 2],
     'весна': [3, 4, 5],
     'лето': [6, 7, 8],
     'осень': [9, 10, 11],
 }
 
-k=1
+k = 1
 for key in year_dict:
     if user_month in year_dict[key] != True:
         break
     else:
         k += 1
 print(f'{key}')
-
