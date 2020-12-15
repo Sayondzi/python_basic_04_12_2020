@@ -1,4 +1,4 @@
-data = ['hel', 'low', 'frog', 'hello', 'lohel', 'hlelo', 'leh',]
+data = ['hel', 'low', 'frog', 'hello', 'lohel', 'hlelo', 'leh', ]
 
 result = {}
 
@@ -12,12 +12,8 @@ for word in data:
 print(list(result.values()))
 print(result)
 
-
-
-#result = [
+# result = [
 #    ['hel', 'leh'],
 #    ['low'],
 #    ['frog']
-#]
-
-
+# ]
