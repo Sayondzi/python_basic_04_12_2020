@@ -37,9 +37,6 @@ while True:
         continue
     break
 
-#var_1 = 5
-#var_2 = -3
-
 def my_func(x, y):
     result = x ** y
     return result

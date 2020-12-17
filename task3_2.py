@@ -6,50 +6,83 @@
 """
 
 var_template = {
-    'Name': ('Укажите Ваше имя:', str),
-    'Surname': ('Укажите Вашу фамилию:', str),
-    'Birthday': ('Ваш год рождения (необходимо указать число в формате XXXX)', int),
-    'City': ('Город проживания:', str),
-    'Email': ('Электронная почта:', str),
-    'Telephone': ('Телефон:', int),
+    'name': ('Укажите Ваше имя:', str),
+    'surname': ('Укажите Вашу фамилию:', str),
+    'birthday': ('Ваш год рождения (необходимо указать число в формате XXXX)', int),
+    'city': ('Город проживания:', str),
+    'email': ('Электронная почта:', str),
+    'telephone': ('Телефон:', int),
 }
-'''
 
-def user_worksheet(var_template):
+def user_worksheet(name, surname, birthday, city, email, telephone):
 
-    user  = {}
-    for key, value in var_template.items():
-        while True:
-            user_value = input(f'{value[0]}\n>>>')
-            try:
-                user_value = value[1](user_value)
-            except ValueError as e:
-                print(f'{e}\nНеверно указаны данные.')
-                continue
-            user[key] = user_value
-            break
-    return user
+    user_book = []
 
-print('#'*40, '\n', user_worksheet(var_template))
+    while True:
+        user_name = input(f'{name[0]}\n>>>')
+        try:
+            user_name = name[1](user_name)
+        except ValueError as e:
+            print(f'{e}\nНеверно указаны данные.')
+            continue
+        user_name = user_name.title()
+        break
+    user_book.append(user_name)
+    while True:
+        user_surname = input(f'{surname[0]}\n>>>')
+        try:
+            user_surname = surname[1](user_surname)
+        except ValueError as e:
+            print(f'{e}\nНеверно указаны данные.')
+            continue
+        user_surname = user_surname.title()
+        break
+    user_book.append(user_surname)
 
-'''
+    while True:
+        user_birthday = input(f'{birthday[0]}\n>>>')
+        try:
+            user_birthday = birthday[1](user_birthday)
+        except ValueError as e:
+            print(f'{e}\nНеверно указаны данные.')
+            continue
+        if user_birthday < 1900 or user_birthday > 2020:
+            print('Пожалуйста, проверьте ещё раз введённые данные.')
+            continue
+        break
+    user_book.append(user_birthday)
 
-def user_worksheet(*user):
+    while True:
+        user_city = input(f'{city[0]}\n>>>')
+        try:
+            user_city = city[1](user_city)
+        except ValueError as e:
+            print(f'{e}\nНеверно указаны данные.')
+            continue
+        user_city = user_city.title()
+        break
+    user_book.append(user_city)
 
-    user  = {}
-    for key, value in var_template.items():
-        while True:
-            user_value = input(f'{value[0]}\n>>>')
-            try:
-                user_value = value[1](user_value)
-            except ValueError as e:
-                print(f'{e}\nНеверно указаны данные.')
-                continue
-            user[key] = user_value
-            break
-    return user
-user_dict = user_worksheet(var_template)
-print('#'*40, f'\n{user_dict}\n', '#'*40)
-print(f"Имя: {user_dict.get('Name')}; Фамилия: {user_dict.get('Surname')}; Год рождения: {user_dict.get('Birthday')}; Город: {user_dict.get('City')}; Email: {user_dict.get('Email')}; Тел.: {user_dict.get('Telephone')}.", '\n', '#'*40)
+    while True:
+        user_email = input(f'{email[0]}\n>>>')
+        try:
+            user_email = email[1](user_email)
+        except ValueError as e:
+            print(f'{e}\nНеверно указаны данные.')
+            continue
+        break
+    user_book.append(user_email)
 
+    while True:
+        user_telephone = input(f'{telephone[0]}\n>>>')
+        try:
+            user_telephone = telephone[1](user_telephone)
+        except ValueError as e:
+            print(f'{e}\nНеверно указаны данные.')
+            continue
+        break
+    user_book.append(user_telephone)
 
+    return user_book
+
+print(user_worksheet(**var_template))
