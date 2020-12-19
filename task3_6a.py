@@ -8,8 +8,7 @@
 Необходимо использовать написанную ранее функцию int_func().
 """
 
-def int_func(word):
-
+def int_func(word: str):
     word1 = list(word.lower())
     word1_up = list(word.upper())
     word_new = word1.copy()
@@ -18,19 +17,18 @@ def int_func(word):
     word_format = ''.join(word_new)
     return word_format
 
-def int_words(text):
+def int_words(text: str):
     len_list = len(text.split())
     idx = 0
     user_list = []
     while idx < len_list:
         user_text1 = text.split()[idx]
         user_list.append(int_func(user_text1))
-        text_format1 = ' '.join(user_list)
         idx += 1
+    text_format1 = ' '.join(user_list)
     return text_format1
 
-
-user_text = input('Введите текст на английском языке.\nСлова вводить через пробелы.\nПосле завершения нажмите клавишу Enter.\n>>>')
+user_text = input(
+    'Введите текст на английском языке.\nСлова вводить через пробелы.\nПосле завершения нажмите клавишу Enter.\n>>>')
 
 print(int_words(user_text))
-
