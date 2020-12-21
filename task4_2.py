@@ -8,3 +8,20 @@
 Результат:
     [12, 44, 4, 10, 78, 123].
 '''
+
+from random import randint
+
+# определение длины исходного списка
+lenght_origin_list = randint(10, 20)
+
+random_list = []
+total_list = []
+i = 0
+while i < lenght_origin_list:
+    random_list.append(randint(0, 1000))
+    if i > 0 and random_list[i - 1] < random_list[i]:
+        total_list.append(random_list[i])
+    i += 1
+
+print('Исходный список:\n', random_list)
+print('Элементы исходного списка, значения которых больше предыдущего элемента:\n', total_list)
