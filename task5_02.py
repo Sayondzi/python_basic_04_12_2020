@@ -6,7 +6,7 @@ import os
 
 file_path = os.path.join(os.path.dirname(__file__), 'annex02.txt')
 
-with open(file_path, 'r') as file:
+with open(file_path, 'r', encoding='UTF-8') as file:
     file_data = file.readlines()
     idx = 0
     print('#' * 60)
